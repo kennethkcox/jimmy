@@ -1,0 +1,240 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+}
+
+#island {
+  background: #000;
+  border-radius: 40px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  margin-top: 10px; /* Gap from top of screen */
+  -webkit-app-region: no-drag;
+}
+
+#island.collapsed {
+  width: 150px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+#island.collapsed:hover {
+  transform: scale(1.05);
+}
+
+#island.expanded {
+  width: 350px;
+  padding: 20px;
+  cursor: default;
+  border-radius: 30px;
+}
+
+#collapsed-view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.drag-handle {
+  color: #555;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.mini-timer {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ff9f0a;
+  font-variant-numeric: tabular-nums;
+}
+
+.mini-icon {
+  color: #1db954;
+  display: flex;
+}
+
+#expanded-view {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Only animate expanded view content when visible */
+#island.expanded #expanded-view {
+  animation: fadeIn 0.3s ease 0.2s both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.timer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timer-header h2 {
+  margin: 0;
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#btn-close {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s, color 0.2s;
+}
+#btn-close:hover { 
+  background: #333;
+  color: white; 
+}
+
+.timer-display {
+  font-size: 56px;
+  font-weight: 600;
+  text-align: center;
+  margin: 5px 0 15px 0;
+  color: #ff9f0a;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.controls button {
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.controls button:hover { background: #333; }
+.controls button:active { transform: scale(0.92); }
+
+.spotify-section {
+  margin-top: 5px;
+}
+
+/* Braun Light Mode */
+body.braun {
+  color: #333;
+}
+
+body.braun #island {
+  background: #EAEAEA;
+  border: 1px solid #D0D0D0;
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.1),
+    inset 0 1px 2px rgba(255,255,255,0.8);
+  border-radius: 40px;
+}
+
+body.braun #island.expanded {
+  border-radius: 30px;
+}
+
+body.braun .drag-handle {
+  color: #888;
+}
+
+body.braun .mini-timer,
+body.braun .timer-display {
+  color: #2E2E2E;
+  font-weight: 500;
+}
+
+body.braun .timer-header h2 {
+  color: #888;
+}
+
+body.braun #btn-close {
+  color: #888;
+}
+body.braun #btn-close:hover {
+  background: #D0D0D0;
+  color: #333;
+}
+
+body.braun .controls button {
+  background: #FAFAFA;
+  border: 1px solid #D0D0D0;
+  color: #333;
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,0.1),
+    inset 0 -2px 2px rgba(0,0,0,0.05);
+  border-radius: 50%;
+  transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+}
+
+body.braun .controls button:hover {
+  background: #F0F0F0;
+}
+
+body.braun .controls button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+body.braun #btn-play, 
+body.braun #btn-pause {
+  background: #2E2E2E;
+  color: #fff;
+  border: none;
+}
+body.braun #btn-play:hover, 
+body.braun #btn-pause:hover {
+  background: #111;
+}
+
+body.braun #btn-reset {
+  background: #FAFAFA;
+  color: #333;
+}
+
+body.braun .mini-icon {
+  color: #2E2E2E;
+}

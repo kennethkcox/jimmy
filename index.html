@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notchflow Windows</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <svg id="burn-frame" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; display:none; z-index:999; box-sizing: border-box;">
+    <rect id="burn-rect" x="0" y="0" width="100%" height="100%" fill="none" stroke="#E03C31" stroke-width="16" pathLength="100" stroke-dasharray="100" stroke-dashoffset="0" />
+  </svg>
+  <div id="island" class="collapsed" style="position:relative;">
+    <canvas id="flow-canvas" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; opacity:0; transition: opacity 0.5s;"></canvas>
+    <!-- Collapsed View -->
+    <div id="collapsed-view">
+      <div class="drag-handle" id="drag-handle" title="Drag to move">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+        </svg>
+      </div>
+      <div class="mini-timer" id="mini-timer">25:00</div>
+      <div class="mini-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z"/>
+        </svg>
+      </div>
+    </div>
+    
+    <!-- Expanded View -->
+    <div id="expanded-view" style="display: none; position:relative; z-index:1;">
+      <div class="pomodoro-section">
+        <div class="timer-header">
+          <h2 id="mode-text">Focus</h2>
+          <canvas id="sparkline-canvas" width="60" height="20" title="Activity Level"></canvas>
+          <button id="btn-close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="timer-display" id="main-timer">25:00</div>
+        <div class="controls">
+          <button id="btn-play">▶</button>
+          <button id="btn-pause" style="display:none;">⏸</button>
+          <button id="btn-reset">↺</button>
+          <button id="btn-mode">☕</button>
+          <button id="btn-theme">🎨</button>
+          <button id="btn-deep-work" title="Deep Work Mode">🔥</button>
+        </div>
+      </div>
+      <div class="spotify-section">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+  <script src="timer.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
