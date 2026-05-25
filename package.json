@@ -25,10 +25,8 @@
   },
   "author": "Kenneth Cox",
   "license": "MIT",
-  "dependencies": {
-    "electron": "^30.0.0"
-  },
   "devDependencies": {
+    "electron": "^30.0.0",
     "electron-builder": "^26.8.1",
     "jest": "^30.4.2"
   }
