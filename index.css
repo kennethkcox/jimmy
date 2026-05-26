@@ -23,9 +23,6 @@ body {
 }
 
 #island.collapsed {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   width: 150px;
   height: 35px;
   display: flex;
@@ -181,9 +178,6 @@ body.braun #island.expanded {
 }
 
 body.braun #island.collapsed {
-  background: rgba(234, 234, 234, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 body.braun .drag-handle {
