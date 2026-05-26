@@ -87,6 +87,11 @@ btnTheme.addEventListener('click', () => {
   updateDisplay();
 });
 
+const btnQuit = document.getElementById('btn-quit');
+btnQuit.addEventListener('click', () => {
+  window.notchflowAPI.quitApp();
+});
+
 // Custom Dragging Logic
 const dragHandle = document.getElementById('drag-handle');
 let isDragging = false;

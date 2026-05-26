@@ -111,3 +111,7 @@ ipcMain.on('toggle-deep-work', (event, enable) => {
     }
   }
 });
+
+ipcMain.on('quit-app', () => {
+  app.quit();
+});
