@@ -1,6 +1,6 @@
 {
   "name": "jimmy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A beautiful, transparent productivity widget for Windows, inspired by macOS Dynamic Island and Braun design.",
   "main": "main.js",
   "scripts": {
