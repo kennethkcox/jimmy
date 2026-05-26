@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain, screen, Tray, Menu, nativeImage, powerMonitor } = require('electron');
 const path = require('path');
+const { autoUpdater } = require('electron-updater');
 
 let mainWindow;
 let tray = null;
@@ -31,6 +32,9 @@ function createWindow() {
 
 app.whenReady().then(() => {
   createWindow();
+
+  // Check for updates silently in the background
+  autoUpdater.checkForUpdatesAndNotify();
 
   // Create Tray
   const iconBase64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAADFJREFUOE9jZKAQMFKon2HUAIbRMAiGQTAMgngE0+zQjIA/Y0Mw2hjE0IAmJjG0kGgAADOFAgE8o3uQAAAAAElFTkSuQmCC';
